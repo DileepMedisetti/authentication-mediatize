@@ -13,12 +13,16 @@
 ========================================== */
 
 .registration-page {
+
     width: 100%;
+
     min-height: 100vh;
     min-height: 100dvh;
 
     display: flex;
+
     justify-content: flex-end;
+
     align-items: center;
 
     padding: 40px clamp(20px, 6vw, 90px);
@@ -35,7 +39,9 @@
         url("/images/background_img.png");
 
     background-size: cover;
-    background-position: center;
+
+    background-position: center center;
+
     background-repeat: no-repeat;
 }
 
@@ -45,7 +51,9 @@
 ========================================== */
 
 .registration-card {
+
     width: 100%;
+
     max-width: 360px;
 
     padding: 26px 28px;
@@ -68,6 +76,7 @@
 ========================================== */
 
 .registration-header {
+
     width: 100%;
 
     text-align: center;
@@ -75,7 +84,9 @@
     margin-bottom: 20px;
 }
 
+
 .registration-header h2 {
+
     margin: 0;
 
     color: #172554;
@@ -87,7 +98,9 @@
     font-weight: 700;
 }
 
+
 .registration-header p {
+
     margin: 7px 0 0;
 
     color: #64748b;
@@ -103,6 +116,7 @@
 ========================================== */
 
 .registration-form {
+
     width: 100%;
 
     display: flex;
@@ -118,6 +132,7 @@
 ========================================== */
 
 .form-group {
+
     width: 100%;
 
     display: flex;
@@ -133,6 +148,7 @@
 ========================================== */
 
 .form-group label {
+
     color: #334155;
 
     font-size: 13px;
@@ -149,7 +165,9 @@
 
 .form-group input,
 .form-group select {
+
     width: 100%;
+
     max-width: 100%;
 
     height: 42px;
@@ -181,6 +199,7 @@
 ========================================== */
 
 .form-group input::placeholder {
+
     color: #94a3b8;
 }
 
@@ -204,6 +223,7 @@
 ========================================== */
 
 .form-group select {
+
     cursor: pointer;
 }
 
@@ -213,7 +233,9 @@
 ========================================== */
 
 .register-button {
+
     width: 100%;
+
     max-width: 100%;
 
     height: 42px;
@@ -299,10 +321,12 @@
     font-size: 13px;
 }
 
+
 .login-link span {
 
     color: #64748b;
 }
+
 
 .login-link a {
 
@@ -314,6 +338,7 @@
 
     transition: color 0.2s ease;
 }
+
 
 .login-link a:hover {
 
@@ -366,8 +391,11 @@
 
         padding: 30px 20px;
 
-        background-position: center;
+        background-size: cover;
+
+        background-position: center center;
     }
+
 
     .registration-card {
 
@@ -392,8 +420,17 @@
 
         align-items: center;
 
-        background-position: center;
+        background-size: cover;
+
+        /*
+         * Keeps the important portion of the
+         * background visible on mobile.
+         */
+        background-position: 35% center;
+
+        background-repeat: no-repeat;
     }
+
 
     .registration-card {
 
@@ -406,35 +443,42 @@
         border-radius: 11px;
     }
 
+
     .registration-header {
 
         margin-bottom: 18px;
     }
+
 
     .registration-header h2 {
 
         font-size: 23px;
     }
 
+
     .registration-header p {
 
         font-size: 12px;
     }
+
 
     .registration-form {
 
         gap: 10px;
     }
 
+
     .form-group {
 
         gap: 4px;
     }
 
+
     .form-group label {
 
         font-size: 12px;
     }
+
 
     .form-group input,
     .form-group select {
@@ -444,12 +488,14 @@
         font-size: 13px;
     }
 
+
     .register-button {
 
         height: 41px;
 
         font-size: 13px;
     }
+
 
     .login-link {
 
@@ -469,7 +515,12 @@
     .registration-page {
 
         padding: 15px 10px;
+
+        background-size: cover;
+
+        background-position: 35% center;
     }
+
 
     .registration-card {
 
@@ -478,15 +529,18 @@
         padding: 22px 17px;
     }
 
+
     .registration-header h2 {
 
         font-size: 21px;
     }
 
+
     .registration-form {
 
         gap: 9px;
     }
+
 
     .form-group input,
     .form-group select {
@@ -497,6 +551,7 @@
 
         font-size: 12px;
     }
+
 
     .register-button {
 
@@ -522,6 +577,7 @@
         overflow-y: auto;
     }
 
+
     .registration-card {
 
         padding-top: 22px;
@@ -529,10 +585,12 @@
         padding-bottom: 22px;
     }
 
+
     .registration-header {
 
         margin-bottom: 15px;
     }
+
 
     .registration-form {
 
@@ -558,6 +616,7 @@
         overflow-y: auto;
     }
 
+
     .registration-card {
 
         padding-top: 20px;
@@ -565,10 +624,12 @@
         padding-bottom: 20px;
     }
 
+
     .registration-header {
 
         margin-bottom: 14px;
     }
+
 
     .registration-form {
 
