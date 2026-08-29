@@ -42,7 +42,7 @@ Authentication Team
 """
     )
 
-    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=15) as server:
 
         server.starttls()
 
