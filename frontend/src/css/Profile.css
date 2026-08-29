@@ -79,6 +79,8 @@
 
 .profile-header {
 
+    width: 100%;
+
     text-align: center;
 
     margin-bottom: 25px;
@@ -172,6 +174,8 @@
 
 .profile-item {
 
+    width: 100%;
+
     display: flex;
 
     justify-content: space-between;
@@ -215,6 +219,8 @@
 ========================================== */
 
 .profile-value {
+
+    min-width: 0;
 
     color: #1e293b;
 
@@ -321,6 +327,7 @@
         background-position: center center;
     }
 
+
     .profile-card {
 
         max-width: 440px;
@@ -341,6 +348,7 @@
         background-position: center center;
     }
 
+
     .profile-card {
 
         max-width: 400px;
@@ -356,9 +364,9 @@
 
     .profile-page {
 
-        min-height: 100dvh;
-
         width: 100%;
+
+        min-height: 100dvh;
 
         padding: 20px 15px;
 
@@ -366,15 +374,13 @@
 
         align-items: center;
 
-        /*
-         * Keep the complete background image visible
-         * as much as possible on narrow screens.
-         */
-        background-position: center center;
-
         background-size: cover;
 
+        background-position: center center;
+
         background-repeat: no-repeat;
+
+        background-attachment: scroll;
     }
 
 
@@ -452,19 +458,21 @@
 
     .profile-page {
 
+        width: 100%;
+
+        min-height: 100dvh;
+
         padding: 15px 10px;
 
-        /*
-         * Slightly adjust the image position
-         * for narrow portrait screens.
-         */
-        background-position: center center;
-
         background-size: cover;
+
+        background-position: center center;
     }
 
 
     .profile-card {
+
+        width: 100%;
 
         max-width: 100%;
 
@@ -512,6 +520,13 @@
     }
 
 
+    .profile-label,
+    .profile-value {
+
+        font-size: 12px;
+    }
+
+
     .profile-value {
 
         width: 100%;
@@ -539,9 +554,9 @@
 
         padding: 12px 8px;
 
-        background-position: center center;
-
         background-size: cover;
+
+        background-position: center center;
     }
 
 
@@ -577,12 +592,14 @@
 
 
 /* ==========================================
-   SHORT SCREENS
+   SHORT DESKTOP / TABLET SCREENS
 ========================================== */
 
-@media (max-height: 650px) {
+@media (max-height: 650px) and (min-width: 601px) {
 
     .profile-page {
+
+        min-height: 100dvh;
 
         align-items: flex-start;
 
@@ -591,8 +608,6 @@
         padding-bottom: 20px;
 
         overflow-y: auto;
-
-        background-position: center center;
     }
 }
 
@@ -605,11 +620,17 @@
 
     .profile-page {
 
+        min-height: 100dvh;
+
+        align-items: flex-start;
+
         padding-top: 15px;
 
         padding-bottom: 15px;
 
-        align-items: flex-start;
+        overflow-y: auto;
+
+        background-position: center center;
     }
 
 

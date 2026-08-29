@@ -1,6 +1,34 @@
-/* ==========================================
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+}
+
+
+/* =========================================================
    BOX SIZING
-========================================== */
+========================================================= */
 
 .registration-page,
 .registration-page * {
@@ -8,12 +36,11 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    REGISTRATION PAGE
-========================================== */
+========================================================= */
 
 .registration-page {
-
     width: 100%;
 
     min-height: 100vh;
@@ -22,7 +49,6 @@
     display: flex;
 
     justify-content: flex-end;
-
     align-items: center;
 
     padding: 40px clamp(20px, 6vw, 90px);
@@ -30,6 +56,14 @@
     position: relative;
 
     overflow-x: hidden;
+
+    /*
+       IMPORTANT:
+       Use the exact image filename.
+       Make sure this file exists:
+
+       public/images/background_img.png
+    */
 
     background-image:
         linear-gradient(
@@ -43,17 +77,17 @@
     background-position: center center;
 
     background-repeat: no-repeat;
+
+    background-attachment: scroll;
 }
 
 
-/* ==========================================
+/* =========================================================
    REGISTRATION CARD
-========================================== */
+========================================================= */
 
 .registration-card {
-
     width: 100%;
-
     max-width: 360px;
 
     padding: 26px 28px;
@@ -68,15 +102,16 @@
     position: relative;
 
     z-index: 2;
+
+    flex-shrink: 0;
 }
 
 
-/* ==========================================
+/* =========================================================
    HEADER
-========================================== */
+========================================================= */
 
 .registration-header {
-
     width: 100%;
 
     text-align: center;
@@ -84,9 +119,7 @@
     margin-bottom: 20px;
 }
 
-
 .registration-header h2 {
-
     margin: 0;
 
     color: #172554;
@@ -98,9 +131,7 @@
     font-weight: 700;
 }
 
-
 .registration-header p {
-
     margin: 7px 0 0;
 
     color: #64748b;
@@ -111,12 +142,11 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    FORM
-========================================== */
+========================================================= */
 
 .registration-form {
-
     width: 100%;
 
     display: flex;
@@ -127,12 +157,11 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    FORM GROUP
-========================================== */
+========================================================= */
 
 .form-group {
-
     width: 100%;
 
     display: flex;
@@ -140,15 +169,16 @@
     flex-direction: column;
 
     gap: 5px;
+
+    min-width: 0;
 }
 
 
-/* ==========================================
+/* =========================================================
    LABEL
-========================================== */
+========================================================= */
 
 .form-group label {
-
     color: #334155;
 
     font-size: 13px;
@@ -159,20 +189,22 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    INPUT & SELECT
-========================================== */
+========================================================= */
 
 .form-group input,
 .form-group select {
+    display: block;
 
     width: 100%;
-
     max-width: 100%;
 
     height: 42px;
 
     padding: 0 12px;
+
+    margin: 0;
 
     border: 1px solid #d1d5db;
 
@@ -188,29 +220,33 @@
 
     font-size: 13px;
 
+    line-height: normal;
+
+    appearance: auto;
+
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease;
 }
 
 
-/* ==========================================
+/* =========================================================
    PLACEHOLDER
-========================================== */
+========================================================= */
 
 .form-group input::placeholder {
-
     color: #94a3b8;
+
+    opacity: 1;
 }
 
 
-/* ==========================================
+/* =========================================================
    INPUT FOCUS
-========================================== */
+========================================================= */
 
 .form-group input:focus,
 .form-group select:focus {
-
     border-color: #2563eb;
 
     box-shadow:
@@ -218,24 +254,23 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    SELECT
-========================================== */
+========================================================= */
 
 .form-group select {
-
     cursor: pointer;
 }
 
 
-/* ==========================================
+/* =========================================================
    REGISTER BUTTON
-========================================== */
+========================================================= */
 
 .register-button {
+    display: block;
 
     width: 100%;
-
     max-width: 100%;
 
     height: 42px;
@@ -258,56 +293,62 @@
 
     font-weight: 600;
 
+    line-height: normal;
+
     cursor: pointer;
 
     transition:
         background-color 0.2s ease,
-        transform 0.2s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 
-/* ==========================================
+/* =========================================================
    BUTTON HOVER
-========================================== */
+========================================================= */
 
 .register-button:hover {
-
     background-color: #1d4ed8;
 
     transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 12px rgba(37, 99, 235, 0.20);
 }
 
 
-/* ==========================================
+/* =========================================================
    BUTTON ACTIVE
-========================================== */
+========================================================= */
 
 .register-button:active {
-
     transform: translateY(0);
+
+    box-shadow: none;
 }
 
 
-/* ==========================================
+/* =========================================================
    DISABLED
-========================================== */
+========================================================= */
 
 .register-button:disabled {
-
     background-color: #93c5fd;
 
     cursor: not-allowed;
 
     transform: none;
+
+    box-shadow: none;
 }
 
 
-/* ==========================================
+/* =========================================================
    LOGIN LINK
-========================================== */
+========================================================= */
 
 .login-link {
-
     display: flex;
 
     justify-content: center;
@@ -319,17 +360,17 @@
     margin-top: 17px;
 
     font-size: 13px;
+
+    line-height: 1.4;
+
+    text-align: center;
 }
 
-
 .login-link span {
-
     color: #64748b;
 }
 
-
 .login-link a {
-
     color: #2563eb;
 
     font-weight: 600;
@@ -339,54 +380,48 @@
     transition: color 0.2s ease;
 }
 
-
 .login-link a:hover {
-
     color: #1d4ed8;
 
     text-decoration: underline;
 }
 
 
-/* ==========================================
+/* =========================================================
    LARGE DESKTOP
-========================================== */
+========================================================= */
 
 @media (min-width: 1400px) {
 
     .registration-page {
-
         padding-right: 10%;
     }
 
     .registration-card {
-
         max-width: 370px;
     }
 }
 
 
-/* ==========================================
+/* =========================================================
    LAPTOP
-========================================== */
+========================================================= */
 
-@media (max-width: 1200px) {
+@media (max-width: 1200px) and (min-width: 901px) {
 
     .registration-page {
-
         padding-right: 5%;
     }
 }
 
 
-/* ==========================================
+/* =========================================================
    TABLET
-========================================== */
+========================================================= */
 
 @media (max-width: 900px) {
 
     .registration-page {
-
         justify-content: center;
 
         padding: 30px 20px;
@@ -396,22 +431,22 @@
         background-position: center center;
     }
 
-
     .registration-card {
-
         max-width: 370px;
     }
 }
 
 
-/* ==========================================
+/* =========================================================
    MOBILE
-========================================== */
+========================================================= */
 
 @media (max-width: 600px) {
 
     .registration-page {
+        width: 100%;
 
+        min-height: 100vh;
         min-height: 100dvh;
 
         padding: 20px 15px;
@@ -420,20 +455,27 @@
 
         align-items: center;
 
-        background-size: cover;
+        overflow-x: hidden;
+
+        overflow-y: auto;
 
         /*
-         * Keeps the important portion of the
-         * background visible on mobile.
-         */
-        background-position: 35% center;
+           Keep the background proportional.
+           Do NOT use 100% 100% because that stretches
+           the image.
+        */
+
+        background-size: cover;
+
+        background-position: center center;
 
         background-repeat: no-repeat;
+
+        background-attachment: scroll;
     }
 
 
     .registration-card {
-
         width: 100%;
 
         max-width: 360px;
@@ -445,51 +487,49 @@
 
 
     .registration-header {
-
         margin-bottom: 18px;
     }
 
 
     .registration-header h2 {
-
         font-size: 23px;
     }
 
 
     .registration-header p {
-
         font-size: 12px;
     }
 
 
     .registration-form {
-
         gap: 10px;
     }
 
 
     .form-group {
-
         gap: 4px;
     }
 
 
     .form-group label {
-
         font-size: 12px;
     }
 
 
     .form-group input,
     .form-group select {
+        width: 100%;
 
         height: 40px;
+
+        padding: 0 11px;
 
         font-size: 13px;
     }
 
 
     .register-button {
+        width: 100%;
 
         height: 41px;
 
@@ -498,7 +538,6 @@
 
 
     .login-link {
-
         font-size: 12px;
 
         margin-top: 15px;
@@ -506,45 +545,54 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    SMALL MOBILE
-========================================== */
+========================================================= */
 
 @media (max-width: 400px) {
 
     .registration-page {
-
         padding: 15px 10px;
 
         background-size: cover;
 
-        background-position: 35% center;
+        background-position: center center;
     }
 
 
     .registration-card {
+        width: 100%;
 
         max-width: 100%;
 
         padding: 22px 17px;
+
+        border-radius: 10px;
+    }
+
+
+    .registration-header {
+        margin-bottom: 16px;
     }
 
 
     .registration-header h2 {
-
         font-size: 21px;
     }
 
 
-    .registration-form {
+    .registration-header p {
+        font-size: 11px;
+    }
 
+
+    .registration-form {
         gap: 9px;
     }
 
 
     .form-group input,
     .form-group select {
-
         height: 39px;
 
         padding: 0 10px;
@@ -554,20 +602,27 @@
 
 
     .register-button {
-
         height: 40px;
+
+        font-size: 12px;
+    }
+
+
+    .login-link {
+        font-size: 11px;
+
+        margin-top: 14px;
     }
 }
 
 
-/* ==========================================
+/* =========================================================
    SHORT LAPTOP / DESKTOP SCREEN
-========================================== */
+========================================================= */
 
 @media (max-height: 700px) and (min-width: 601px) {
 
     .registration-page {
-
         align-items: flex-start;
 
         padding-top: 25px;
@@ -579,7 +634,6 @@
 
 
     .registration-card {
-
         padding-top: 22px;
 
         padding-bottom: 22px;
@@ -587,26 +641,23 @@
 
 
     .registration-header {
-
         margin-bottom: 15px;
     }
 
 
     .registration-form {
-
         gap: 9px;
     }
 }
 
 
-/* ==========================================
+/* =========================================================
    SHORT MOBILE SCREEN
-========================================== */
+========================================================= */
 
 @media (max-height: 650px) and (max-width: 600px) {
 
     .registration-page {
-
         align-items: flex-start;
 
         padding-top: 15px;
@@ -618,7 +669,6 @@
 
 
     .registration-card {
-
         padding-top: 20px;
 
         padding-bottom: 20px;
@@ -626,13 +676,175 @@
 
 
     .registration-header {
-
         margin-bottom: 14px;
     }
 
 
     .registration-form {
-
         gap: 8px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE DEVICE FALLBACK
+   ---------------------------------------------------------
+   This is important if Chrome Android is showing
+   "Desktop site".
+
+   Some mobile browsers can report a large CSS viewport
+   even though the actual device is a phone.
+
+   This rule detects touch/coarse-pointer devices and
+   forces the mobile layout.
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .registration-page {
+        justify-content: center;
+
+        align-items: center;
+
+        width: 100%;
+
+        min-height: 100vh;
+        min-height: 100dvh;
+
+        padding: 20px 15px;
+
+        overflow-x: hidden;
+
+        overflow-y: auto;
+
+        background-size: cover;
+
+        background-position: center center;
+
+        background-repeat: no-repeat;
+
+        background-attachment: scroll;
+    }
+
+
+    .registration-card {
+        width: 100%;
+
+        max-width: 360px;
+
+        padding: 24px 20px;
+    }
+
+
+    .registration-header {
+        margin-bottom: 18px;
+    }
+
+
+    .registration-header h2 {
+        font-size: 23px;
+    }
+
+
+    .registration-header p {
+        font-size: 12px;
+    }
+
+
+    .registration-form {
+        gap: 10px;
+    }
+
+
+    .form-group {
+        gap: 4px;
+    }
+
+
+    .form-group label {
+        font-size: 12px;
+    }
+
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+
+        height: 40px;
+
+        font-size: 13px;
+    }
+
+
+    .register-button {
+        width: 100%;
+
+        height: 41px;
+
+        font-size: 13px;
+    }
+
+
+    .login-link {
+        font-size: 12px;
+
+        margin-top: 15px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) and (max-width: 400px) {
+
+    .registration-page {
+        padding: 15px 10px;
+
+        background-size: cover;
+
+        background-position: center center;
+    }
+
+
+    .registration-card {
+        max-width: 100%;
+
+        padding: 22px 17px;
+    }
+
+
+    .registration-header h2 {
+        font-size: 21px;
+    }
+
+
+    .registration-form {
+        gap: 9px;
+    }
+
+
+    .form-group input,
+    .form-group select {
+        height: 39px;
+
+        padding: 0 10px;
+
+        font-size: 12px;
+    }
+
+
+    .register-button {
+        height: 40px;
+
+        font-size: 12px;
+    }
+
+
+    .login-link {
+        font-size: 11px;
+
+        margin-top: 14px;
     }
 }

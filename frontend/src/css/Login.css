@@ -1,6 +1,36 @@
-/* ==========================================
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+html,
+body,
+#root {
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+}
+
+
+/* =========================================================
    BOX SIZING
-========================================== */
+========================================================= */
 
 .login-page,
 .login-page * {
@@ -8,9 +38,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    LOGIN PAGE
-========================================== */
+========================================================= */
 
 .login-page {
 
@@ -38,17 +68,29 @@
         ),
         url("/images/background_img.png");
 
+    /*
+       IMPORTANT
+       Keep cover.
+       This prevents the image from stretching.
+    */
+
     background-size: cover;
 
     background-position: center center;
 
     background-repeat: no-repeat;
+
+    /*
+       Important for mobile browsers.
+    */
+
+    background-attachment: scroll;
 }
 
 
-/* ==========================================
+/* =========================================================
    LOGIN CARD
-========================================== */
+========================================================= */
 
 .login-card {
 
@@ -68,12 +110,14 @@
     position: relative;
 
     z-index: 2;
+
+    flex-shrink: 0;
 }
 
 
-/* ==========================================
+/* =========================================================
    HEADER
-========================================== */
+========================================================= */
 
 .login-header {
 
@@ -111,9 +155,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    LOGIN FORM
-========================================== */
+========================================================= */
 
 .login-form {
 
@@ -127,13 +171,15 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    FORM GROUP
-========================================== */
+========================================================= */
 
 .login-form-group {
 
     width: 100%;
+
+    min-width: 0;
 
     display: flex;
 
@@ -143,9 +189,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    LABEL
-========================================== */
+========================================================= */
 
 .login-form-group label {
 
@@ -159,16 +205,22 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    INPUT & SELECT
-========================================== */
+========================================================= */
 
 .login-form-group input,
 .login-form-group select {
 
+    display: block;
+
     width: 100%;
 
+    max-width: 100%;
+
     height: 44px;
+
+    margin: 0;
 
     padding: 0 12px;
 
@@ -186,25 +238,29 @@
 
     font-size: 13px;
 
+    line-height: normal;
+
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease;
 }
 
 
-/* ==========================================
+/* =========================================================
    PLACEHOLDER
-========================================== */
+========================================================= */
 
 .login-form-group input::placeholder {
 
     color: #94a3b8;
+
+    opacity: 1;
 }
 
 
-/* ==========================================
+/* =========================================================
    FOCUS
-========================================== */
+========================================================= */
 
 .login-form-group input:focus,
 .login-form-group select:focus {
@@ -216,9 +272,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    SELECT
-========================================== */
+========================================================= */
 
 .login-form-group select {
 
@@ -226,9 +282,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    PASSWORD INPUT CONTAINER
-========================================== */
+========================================================= */
 
 .password-input-container {
 
@@ -242,9 +298,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    PASSWORD INPUT
-========================================== */
+========================================================= */
 
 .password-input-container input {
 
@@ -254,9 +310,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    PASSWORD TOGGLE
-========================================== */
+========================================================= */
 
 .password-toggle {
 
@@ -306,9 +362,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    PASSWORD TOGGLE HOVER
-========================================== */
+========================================================= */
 
 .password-toggle:hover {
 
@@ -318,9 +374,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    PASSWORD TOGGLE ACTIVE
-========================================== */
+========================================================= */
 
 .password-toggle:active {
 
@@ -328,9 +384,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    PASSWORD TOGGLE FOCUS
-========================================== */
+========================================================= */
 
 .password-toggle:focus {
 
@@ -340,9 +396,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    FORGOT PASSWORD
-========================================== */
+========================================================= */
 
 .forgot-password {
 
@@ -378,11 +434,13 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    LOGIN BUTTON
-========================================== */
+========================================================= */
 
 .login-button {
+
+    display: block;
 
     width: 100%;
 
@@ -406,39 +464,47 @@
 
     font-weight: 600;
 
+    line-height: normal;
+
     cursor: pointer;
 
     transition:
         background-color 0.2s ease,
-        transform 0.2s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 
-/* ==========================================
+/* =========================================================
    BUTTON HOVER
-========================================== */
+========================================================= */
 
 .login-button:hover {
 
     background-color: #1d4ed8;
 
     transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 12px rgba(37, 99, 235, 0.20);
 }
 
 
-/* ==========================================
+/* =========================================================
    BUTTON ACTIVE
-========================================== */
+========================================================= */
 
 .login-button:active {
 
     transform: translateY(0);
+
+    box-shadow: none;
 }
 
 
-/* ==========================================
+/* =========================================================
    BUTTON DISABLED
-========================================== */
+========================================================= */
 
 .login-button:disabled {
 
@@ -447,12 +513,14 @@
     cursor: not-allowed;
 
     transform: none;
+
+    box-shadow: none;
 }
 
 
-/* ==========================================
+/* =========================================================
    REGISTER LINK
-========================================== */
+========================================================= */
 
 .register-link {
 
@@ -467,6 +535,10 @@
     margin-top: 20px;
 
     font-size: 13px;
+
+    line-height: 1.4;
+
+    text-align: center;
 }
 
 
@@ -496,9 +568,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    LARGE DESKTOP
-========================================== */
+========================================================= */
 
 @media (min-width: 1400px) {
 
@@ -507,6 +579,7 @@
         padding-right: 10%;
     }
 
+
     .login-card {
 
         max-width: 370px;
@@ -514,11 +587,11 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    LAPTOP
-========================================== */
+========================================================= */
 
-@media (max-width: 1200px) {
+@media (max-width: 1200px) and (min-width: 901px) {
 
     .login-page {
 
@@ -527,9 +600,9 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    TABLET
-========================================== */
+========================================================= */
 
 @media (max-width: 900px) {
 
@@ -544,6 +617,7 @@
         background-position: center center;
     }
 
+
     .login-card {
 
         max-width: 370px;
@@ -551,31 +625,43 @@
 }
 
 
-/* ==========================================
+/* =========================================================
    MOBILE
-========================================== */
+========================================================= */
 
 @media (max-width: 600px) {
 
     .login-page {
 
-        min-height: 100dvh;
+        width: 100%;
 
-        padding: 20px 15px;
+        min-height: 100vh;
+        min-height: 100svh;
+        min-height: 100dvh;
 
         justify-content: center;
 
         align-items: center;
 
-        background-size: cover;
+        padding: 20px 15px;
+
+        overflow-x: hidden;
+
+        overflow-y: auto;
 
         /*
-         * Keeps the important left/center
-         * portion of the background visible.
-         */
-        background-position: 35% center;
+           IMPORTANT:
+           Keep cover so the image maintains
+           its original aspect ratio.
+        */
+
+        background-size: cover;
+
+        background-position: center center;
 
         background-repeat: no-repeat;
+
+        background-attachment: scroll;
     }
 
 
@@ -630,6 +716,288 @@
     .login-form-group input,
     .login-form-group select {
 
+        width: 100%;
+
+        height: 41px;
+
+        padding: 0 11px;
+
+        font-size: 13px;
+    }
+
+
+    .password-input-container input {
+
+        padding-right: 45px;
+    }
+
+
+    .password-toggle {
+
+        right: 7px;
+
+        width: 30px;
+
+        height: 30px;
+
+        font-size: 16px;
+    }
+
+
+    .forgot-password {
+
+        margin-top: -3px;
+    }
+
+
+    .forgot-password a {
+
+        font-size: 12px;
+    }
+
+
+    .login-button {
+
+        width: 100%;
+
+        height: 42px;
+
+        font-size: 13px;
+    }
+
+
+    .register-link {
+
+        font-size: 12px;
+
+        margin-top: 17px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .login-page {
+
+        padding: 15px 10px;
+
+        background-size: cover;
+
+        background-position: center center;
+    }
+
+
+    .login-card {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        padding: 23px 17px;
+
+        border-radius: 10px;
+    }
+
+
+    .login-header {
+
+        margin-bottom: 18px;
+    }
+
+
+    .login-header h2 {
+
+        font-size: 21px;
+    }
+
+
+    .login-header p {
+
+        font-size: 11px;
+    }
+
+
+    .login-form {
+
+        gap: 10px;
+    }
+
+
+    .login-form-group input,
+    .login-form-group select {
+
+        height: 40px;
+
+        padding: 0 10px;
+
+        font-size: 12px;
+    }
+
+
+    .password-input-container input {
+
+        padding-right: 42px;
+    }
+
+
+    .password-toggle {
+
+        right: 5px;
+
+        width: 29px;
+
+        height: 29px;
+
+        font-size: 15px;
+    }
+
+
+    .login-button {
+
+        height: 40px;
+
+        font-size: 12px;
+    }
+
+
+    .register-link {
+
+        font-size: 11px;
+
+        margin-top: 14px;
+    }
+}
+
+
+/* =========================================================
+   SHORT DESKTOP / TABLET SCREENS
+========================================================= */
+
+@media (max-height: 600px) and (min-width: 601px) {
+
+    .login-page {
+
+        align-items: flex-start;
+
+        padding-top: 20px;
+
+        padding-bottom: 20px;
+
+        overflow-y: auto;
+    }
+}
+
+
+/* =========================================================
+   SHORT MOBILE SCREENS
+========================================================= */
+
+@media (max-height: 650px) and (max-width: 600px) {
+
+    .login-page {
+
+        align-items: flex-start;
+
+        padding-top: 15px;
+
+        padding-bottom: 15px;
+
+        overflow-y: auto;
+    }
+}
+
+
+/* =========================================================
+   TOUCH DEVICE FALLBACK
+   ---------------------------------------------------------
+   Helps Android/iPhone when browser rendering behaves
+   like desktop because of viewport/device settings.
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .login-page {
+
+        width: 100%;
+
+        min-height: 100vh;
+        min-height: 100dvh;
+
+        justify-content: center;
+
+        align-items: center;
+
+        padding: 20px 15px;
+
+        overflow-x: hidden;
+
+        overflow-y: auto;
+
+        background-size: cover;
+
+        background-position: center center;
+
+        background-repeat: no-repeat;
+
+        background-attachment: scroll;
+    }
+
+
+    .login-card {
+
+        width: 100%;
+
+        max-width: 360px;
+
+        padding: 26px 20px;
+    }
+
+
+    .login-header {
+
+        margin-bottom: 20px;
+    }
+
+
+    .login-header h2 {
+
+        font-size: 23px;
+    }
+
+
+    .login-header p {
+
+        font-size: 12px;
+    }
+
+
+    .login-form {
+
+        gap: 12px;
+    }
+
+
+    .login-form-group {
+
+        gap: 4px;
+    }
+
+
+    .login-form-group label {
+
+        font-size: 12px;
+    }
+
+
+    .login-form-group input,
+    .login-form-group select {
+
+        width: 100%;
+
         height: 41px;
 
         font-size: 13px;
@@ -662,6 +1030,8 @@
 
     .login-button {
 
+        width: 100%;
+
         height: 42px;
 
         font-size: 13px;
@@ -677,11 +1047,11 @@
 }
 
 
-/* ==========================================
-   SMALL MOBILE
-========================================== */
+/* =========================================================
+   VERY SMALL TOUCH DEVICES
+========================================================= */
 
-@media (max-width: 400px) {
+@media (hover: none) and (pointer: coarse) and (max-width: 400px) {
 
     .login-page {
 
@@ -689,7 +1059,7 @@
 
         background-size: cover;
 
-        background-position: 35% center;
+        background-position: center center;
     }
 
 
@@ -746,23 +1116,12 @@
 
         height: 40px;
     }
-}
 
 
-/* ==========================================
-   SHORT SCREENS
-========================================== */
+    .register-link {
 
-@media (max-height: 600px) {
+        font-size: 11px;
 
-    .login-page {
-
-        align-items: flex-start;
-
-        padding-top: 20px;
-
-        padding-bottom: 20px;
-
-        overflow-y: auto;
+        margin-top: 14px;
     }
 }
