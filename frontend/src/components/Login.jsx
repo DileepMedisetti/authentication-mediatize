@@ -18,6 +18,9 @@ function Login() {
 
     const [loading, setLoading] = useState(false);
 
+    // Password visibility
+    const [showPassword, setShowPassword] = useState(false);
+
 
     // Handle input changes
     const handleChange = (e) => {
@@ -93,6 +96,9 @@ function Login() {
                 department: "",
                 password: ""
             });
+
+            // Hide password after successful login
+            setShowPassword(false);
 
 
             // Navigate to profile
@@ -234,16 +240,39 @@ function Login() {
                             Password
                         </label>
 
-                        <input
-                            id="password"
-                            type="password"
-                            name="password"
-                            placeholder="Enter your password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            autoComplete="current-password"
-                            required
-                        />
+                        <div className="password-input-container">
+
+                            <input
+                                id="password"
+                                type={
+                                    showPassword
+                                        ? "text"
+                                        : "password"
+                                }
+                                name="password"
+                                placeholder="Enter your password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                autoComplete="current-password"
+                                required
+                            />
+
+                            <button
+                                type="button"
+                                className="password-toggle"
+                                onClick={() =>
+                                    setShowPassword(!showPassword)
+                                }
+                                aria-label={
+                                    showPassword
+                                        ? "Hide password"
+                                        : "Show password"
+                                }
+                            >
+                                {showPassword ? "🙈" : "👁️"}
+                            </button>
+
+                        </div>
 
                     </div>
 
