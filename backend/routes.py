@@ -173,48 +173,113 @@ def login(
 # Forgot Password API
 # --------------------------------------------------
 
-@router.post("/forgot-password", tags=["Forgot Password API"])
+@router.post(
+    "/forgot-password",
+    tags=["Forgot Password API"]
+)
 def forgot_password(
     request: schemas.ForgotPassword,
     db: Session = Depends(get_db)
 ):
+
+    # ----------------------------------------------
+    # Find user
+    # ----------------------------------------------
+
     user = db.query(models.Users).filter(
         models.Users.email == request.email
     ).first()
 
+
     if not user:
+
         raise HTTPException(
             status_code=404,
             detail="User not found"
         )
 
+
+    # ----------------------------------------------
+    # Create reset token
+    # ----------------------------------------------
+
     token = create_reset_token()
 
     token_hash = hash_reset_token(token)
 
-    expires_at = datetime.now(timezone.utc) + timedelta(minutes=30)
+
+    # ----------------------------------------------
+    # Token expiry - 30 minutes
+    # ----------------------------------------------
+
+    expires_at = (
+        datetime.now(timezone.utc)
+        + timedelta(minutes=30)
+    )
+
+
+    # ----------------------------------------------
+    # Store reset token
+    # ----------------------------------------------
 
     reset_token = models.PasswordResetToken(
+
         user_id=user.id,
+
         token_hash=token_hash,
+
         expires_at=expires_at,
+
         used=False
     )
 
+
     db.add(reset_token)
+
     db.commit()
 
-    reset_link = f"{FRONTEND_URL}/reset-password?token={token}"
 
-    send_reset_email(
-        user.email,
-        reset_link
+    # ----------------------------------------------
+    # Create React reset-password URL
+    # ----------------------------------------------
+
+    reset_link = (
+        f"{FRONTEND_URL}/reset-password?token={token}"
     )
 
-    return {
-        "message": "Password reset link has been sent to your email"
-    }
 
+    # ----------------------------------------------
+    # Send email
+    # ----------------------------------------------
+
+    try:
+
+        send_reset_email(
+            user.email,
+            reset_link
+        )
+
+    except Exception as e:
+
+        print(
+            "Password reset email failed:",
+            str(e)
+        )
+
+        raise HTTPException(
+            status_code=500,
+            detail="Unable to send password reset email"
+        )
+
+
+    # ----------------------------------------------
+    # Response
+    # ----------------------------------------------
+
+    return {
+        "message":
+            "Password reset link has been sent to your email"
+    }
 
 # --------------------------------------------------
 # Reset Password API
